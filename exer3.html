@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .campo {
+            margin-bottom: 15px;
+        }
+        input, button {
+            padding: 6px;
+            font-size: 16px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .resultado {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Controle de Memória</h2>
+    
+    <div class="campo">
+        <label>Digite um número inteiro:</label>
+        <input type="number" id="numero" step="1">
+    </div>
+    
+    <button onclick="guardar()">Guardar</button>
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="reduzir()">Reduzir</button>
+    <button onclick="limpar()">Limpar</button>
+    
+    <div class="resultado" id="resultado">Memória atual: null</div>
+
+    <script>
+
+        let memoria = null;
+
+        function mostrarMemoria() {
+            document.getElementById('resultado').innerHTML = "Memória atual: " + memoria;
+        }
+
+        function guardar() {
+            let valor = Number(document.getElementById('numero').value);
+            memoria = valor;
+            mostrarMemoria();
+        }
+
+        function adicionar() {
+            let valor = Number(document.getElementById('numero').value);
+            if (memoria === null) memoria = 0; 
+            memoria += valor;
+            mostrarMemoria();
+        }
+
+        function reduzir() {
+            let valor = Number(document.getElementById('numero').value);
+            if (memoria === null) memoria = 0; 
+            memoria -= valor;
+            mostrarMemoria();
+        }
+
+        function limpar() {
+            memoria = null;
+            mostrarMemoria();
+        }
+    </script>
+</body>
+</html>
